@@ -9,7 +9,7 @@
   # 파일 삭제를 원할 경우
   docker-compose down 
   
-  # 파일 정지를 원할 경우
+   # 파일 정지를 원할 경우
   docker-compose stop 
   </code></pre>
 - 재실행 방법
