@@ -5,11 +5,9 @@
 - 실행 방법
   <pre><code> docker-compose up -d</code></pre>
 - 종료 방법
-  <pre><code>
-  # 파일 삭제를 원할 경우
-  docker-compose down 
-  
-   # 파일 정지를 원할 경우
+  <pre><code> # 파일 삭제를 원할 경우
+  docker-compose down <br>
+  # 파일 정지를 원할 경우
   docker-compose stop 
   </code></pre>
 - 재실행 방법
