@@ -1,6 +1,8 @@
 <h1>도커 컴포즈를 활용한 하둡 클러스터</h1>
 -  코드 다운 및 파일 이동
-  <pre><code> git clonehttps://github.com/tae2089/docker.git </code></pre>
+  <pre><code> git clonehttps://github.com/tae2089/docker.git 
+  cd hadoop
+  </code></pre>
 - 실행 방법
   <pre><code> docker-compose up -d</code></pre>
 - 종료 방법
