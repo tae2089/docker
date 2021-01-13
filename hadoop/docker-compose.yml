@@ -1,0 +1,32 @@
+version: "3.7"
+
+services:
+  master:
+    image: tae2089/hadoop_master:1.0
+    container_name: master
+    hostname: master
+    command: bash -c  " chmod 777 test.sh &&./test.sh"
+    tty: true
+    ports:
+      - "50070:50070"
+      - "8088:8088"
+    links:
+      - slave1
+      - slave2
+
+  slave1:
+    image: tae2089/hadoop_slave:1.0
+    container_name: slave1
+    hostname: slave1
+    tty: true
+    command: bash -c  " chmod 777 test.sh &&./test.sh"
+
+  slave2:
+    image: tae2089/hadoop_slave:1.0
+    container_name: slave2
+    hostname: slave2
+    tty: true
+    command: bash -c  " chmod 777 test.sh &&./test.sh"
+
+networks:
+  bridge:
