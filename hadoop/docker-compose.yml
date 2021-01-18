@@ -2,7 +2,7 @@ version: "3.7"
 
 services:
   master:
-    image: tae2089/hadoop_master:1.0
+    image: tae2089/hadoop_master:3.0
     container_name: master
     hostname: master
     command: bash -c  " chmod 777 test.sh &&./test.sh"
@@ -15,14 +15,14 @@ services:
       - slave2
 
   slave1:
-    image: tae2089/hadoop_slave:1.0
+    image: tae2089/hadoop_slave:2.0
     container_name: slave1
     hostname: slave1
     tty: true
     command: bash -c  " chmod 777 test.sh &&./test.sh"
 
   slave2:
-    image: tae2089/hadoop_slave:1.0
+    image: tae2089/hadoop_slave:2.0
     container_name: slave2
     hostname: slave2
     tty: true

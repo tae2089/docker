@@ -1,6 +1,6 @@
 <h1>도커 컴포즈를 활용한 하둡 클러스터</h1>
  
- -  코드 다운 및 파일 이동
+ -  코드 다운 및 파일 이동š
     <pre><code> git clonehttps://github.com/tae2089/docker.git <br> cd hadoop
   </code></pre>
 - 실행 방법
