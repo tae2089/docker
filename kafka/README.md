@@ -31,8 +31,8 @@
 <pre><code>
 broker3:
   image: tae2089/kafka:1.4
-  container_name: broker2
-  hostname: broker2
+  container_name: broker3
+  hostname: broker3
   environment:
     - MYID=3
     - ZOO_SERVERS=server.1=broker1:2888:3888 server.2=broker2:2888:3888,server.3=broker3:2888:3888
