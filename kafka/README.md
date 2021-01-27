@@ -34,7 +34,7 @@ broker3:
   container_name: broker2
   hostname: broker2
   environment:
-    - MYID=2
+    - MYID=3
     - ZOO_SERVERS=server.1=broker1:2888:3888 server.2=broker2:2888:3888,server.3=broker3:2888:3888
     - BROKER=broker3
     - ZOO_CONNECT=broker1:2181,broker2:2182,broker3:2183
