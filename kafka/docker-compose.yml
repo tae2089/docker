@@ -2,7 +2,7 @@ version: "3.7"
 
 services:
   broker1:
-    image: tae2089/kafka:1.4
+    image: tae2089/kafka:1.5
     container_name: broker1
     hostname: broker1
     environment:
@@ -18,7 +18,7 @@ services:
       - broker2
 
   broker2:
-    image: tae2089/kafka:1.4
+    image: tae2089/kafka:1.5
     container_name: broker2
     hostname: broker2
     environment:
