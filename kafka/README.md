@@ -5,7 +5,8 @@
 </pre>
 파일을 다운받고 위 명령어를 통해 도커 컴포즈를 실행해준다.
 
-<pre><code>docker exec -it <broker명> sh -c ". /root/start.sh" </code></pre>
+<pre><code>docker exec -it [컨테이너명] sh -c ". /root/start.sh"
+docker exec -it broker1 sh -c ". /root/start.sh" </code></pre>
 위 명령어는 주키퍼와 카프카를 실행하는 명령어다. 컨테이너 마다 하나씩 명령어를 입력해준다.
 
 <h2>노드를 늘리고 싶을 경우</h2>
