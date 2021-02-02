@@ -2,13 +2,16 @@ version: "3.7"
 
 services:
   broker1:
-    image: tae2089/kafka:1.5
+    image: tae2089/kafka:1.7
     container_name: broker1
     hostname: broker1
     environment:
       - MYID=1
       - ZOO_SERVERS=server.1=broker1:2888:3888 server.2=broker2:2888:3888
-      - BROKER=broker1
+      - KAFKA_LISTENER=PLAINTEXT://0.0.0.0:9092
+      - KAFKA_ADVERTISED_LISTENER=PLAINTEXT://${HOSTIP}:9092
+      - PORT=9092
+      - BROKER=${hostIP}
       - ZOO_CONNECT=broker1:2181,broker2:2182
     tty: true
     ports:
@@ -18,29 +21,20 @@ services:
       - broker2
 
   broker2:
-    image: tae2089/kafka:1.5
+    image: tae2089/kafka:1.7
     container_name: broker2
     hostname: broker2
     environment:
       - MYID=2
       - ZOO_SERVERS=server.1=broker1:2888:3888 server.2=broker2:2888:3888
-      - BROKER=broker2
+      - KAFKA_LISTENER=PLAINTEXT://0.0.0.0:9093
+      - KAFKA_ADVERTISED_LISTENER=PLAINTEXT://${HOSTIP}:9093
+      - PORT=9093
+      - BROKER=${hostIP}
       - ZOO_CONNECT=broker1:2181,broker2:2182
     tty: true
     ports:
       - "2182:2181"
-      - "9093:9092"
+      - "9093:9093"
 networks:
   bridge:
-
-
-#file volumes로 진행하기
-# volues:
-#   - ./docker/zookeeper/data:/root/zookeeper/conf
-#   - ./docker/kafka/data:/root/kafka/conf
-
-
-#test.sh
-# echo $myid > /root/zookeeper/data/myid
-# ./bin/zkServer.sh
-#./bin/kafka.sh start
