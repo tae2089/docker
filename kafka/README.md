@@ -13,7 +13,7 @@ docker exec -it broker1 sh -c ". /root/start.sh" </code></pre>
 - 도커 컴포즈 파일에서 해당 변수들을 수정 및 추가를 진행해주면 된다.
 <pre><code>
 <서비스명>:
-  image: tae2089/kafka:1.5
+  image: tae2089/kafka:1.7
   container_name: <서비스명>
   hostname: <서비스명>
   environment:
