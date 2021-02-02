@@ -17,33 +17,42 @@ docker exec -it broker1 sh -c ". /root/start.sh" </code></pre>
   container_name: <서비스명>
   hostname: <서비스명>
   environment:
-    - MYID=2
+    - MYID=<식별가능한 고유 ID>
     - ZOO_SERVERS=server.1=broker1:2888:3888 server.2=broker2:2888:3888
     server.x=<서비스명:2888:3888>
-    - BROKER=<서비스명>
-    - ZOO_CONNECT=broker1:2181,broker2:2182,<서비스명:추가된 주키퍼 외부 포트 번호>
+    - BROKER=<호스트IP 입력>
+    - PORT=<카프카 포트 번호>
+    - KAFKA_LISTENER=PLAINTEXT://0.0.0.0:<카프카 포트 번호>
+    - KAFKA_ADVERTISED_LISTENER=PLAINTEXT://<호스트IP>:<카프카 포트 번호>
+    - ZOO_CONNECT=broker1:2181,broker2:2182,<서비스명:추가된 주키퍼 외부
+     포트 번호>
   tty: true
   ports:
-    - "<원하는 포트 입력>:2181"
-    - "<원하는 포트 입력>:9092"
+    - "<주키퍼에 접속하기를 원하는 포트 입력>:2181"
+    - "<카프카 포트 번호>:<카프카 포트 번호>"
  </code></pre>
 <br>
 - 예제
 <pre><code>
 broker3:
-  image: tae2089/kafka:1.5
+  image: tae2089/kafka:1.7
   container_name: broker3
   hostname: broker3
   environment:
     - MYID=3
     - ZOO_SERVERS=server.1=broker1:2888:3888 server.2=broker2:2888:3888 server.3=broker3:2888:3888
-    - BROKER=broker3
+    - KAFKA_LISTENER=PLAINTEXT://0.0.0.0:9094
+    - KAFKA_ADVERTISED_LISTENER=PLAINTEXT://${HOSTIP}:9094
+    - PORT=9094
+    - BROKER=${hostIP}
     - ZOO_CONNECT=broker1:2181,broker2:2182,broker3:2183
   tty: true
   ports:
     - "2183:2181"
-    - "9094:9092"
+    - "9094:9094"
  </code></pre>
 
  - 주의사항
    1. 해당코드는 공부용도입니다. 주키퍼 서버와 카프카 서버를 하나의 컨테이너에 운영하도록 만들어 두었습니다. 현업에서는 주키퍼와 카프카를 분리해서 돌리기에 스터디 용도로만 사용하시길 바랍니다.
+   2. hostIP를 확인해서 잘 넣어야 합니다. 127.0.0.1로 하면 리스너가 인식을 하지 못해 에러가 발생합니다.
+   3. 포트 번호들은 다른 컨테이너 포트와 겹치지 않게 하는 것이 좋습니다.
