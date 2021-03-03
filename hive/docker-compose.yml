@@ -1,0 +1,22 @@
+version: "3.7"
+
+services:
+  hive:
+    image: tae2089/hive:latest
+    container_name: hive
+    tty: true
+    ports:
+      - "62530:62530"
+      - "62531:62531"
+      - "10000:10000"
+      - "9083:9083"
+  spark:
+    image: tae2089/spark_alone:latest
+    container_name: spark
+    tty: true
+    ports:
+      - "8080:8080"
+      - "4040:4040"
+      - "7777:8888"
+networks:
+  default:
