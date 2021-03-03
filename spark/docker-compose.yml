@@ -1,0 +1,30 @@
+version: "3"
+
+services:
+  master:
+    image: spark_master:latest
+    container_name: master
+    hostname: master
+    ports:
+      - "8080:8080"
+    networks:
+      - bridge
+  # slave1:
+  #   image: spark_slave:latest
+  #   container_name: slave1
+  #   hostname: slave1
+  #   ports:
+  #     - "8081:8080"
+  #   networks:
+  #     - bridge
+  # slave2:
+  #   image: spark_slave:latest
+  #   container_name: slave2
+  #   hostname: slave2
+  #   ports:
+  #     - "8082:8080"
+  #   networks:
+  #     - bridge
+
+networks:
+  bridge:
