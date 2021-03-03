@@ -1,0 +1,16 @@
+version: "3.7"
+
+services:
+  broker1:
+    image: fluent/fluentd
+    container_name: fluentd
+    hostname: fluentd
+    environment:
+      - FLUENTD_CONF=test.conf
+    tty: true
+    volumes:
+      - /test.conf:/fluentd/etc/test.conf
+    ports:
+      - "24224:24224"
+networks:
+  bridge:
