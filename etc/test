@@ -1,0 +1,3 @@
+FROM ubuntu:latest
+ENV name John Dow
+ENTRYPOINT echo "Hello, $name"

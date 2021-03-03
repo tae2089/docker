@@ -1,0 +1,8 @@
+FROM ubuntu:latest
+
+RUN apt-get update
+RUN apt-get install -y git
+RUN groupadd -g 999 appuser
+RUN useradd -r -m -u 999 -g appuser appuser1
+
+USER appuser1 

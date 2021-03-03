@@ -1,0 +1,7 @@
+FROM ubuntu:latest
+MAINTAINER tae2089
+LABEL "purpose"="pratice"
+WORKDIR /root
+RUN apt-get update
+RUN apt-get install -y wget
+RUN wget https://downloads.apache.org/hadoop/common/hadoop-2.8.5/hadoop-2.8.5-src.tar.gz

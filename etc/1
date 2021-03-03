@@ -1,0 +1,48 @@
+CREATE EXTERNAL TABLE IF NOT EXISTS table_nm ( 
+a string comment 'a',
+b string comment 'b',
+c string comment 'c'
+)
+comment 'table comment'
+PARTITIONED BY (DT STRING)
+ROW FORMAT DELIMITED FIELDS TERMINATED BY ','
+LINES TERMINATED BY '\n'
+STORED AS TEXTFILE
+LOCATION 'hdfs://'
+;
+
+
+
+<property>
+     <name>hive.metastore.warehouse.dir</name>
+     <value>/user/hive/warehouse</value>
+</property>
+<property>
+     <name>hive.cli.print.header</name>
+     <value>true</value>
+</property>
+<property>
+<name>hive.metastore.local</name>
+<value>false</value>
+</property>
+<property>
+<name>javax.jdo.option.ConnectionURL</name>
+<value>jdbc:mysql://localhost:3306/metastore?createDatabaseifNotExist=true&amp;allowPublicKeyRetrieval=true&amp;useSSL=false</value>
+</property>
+<property>
+<name>javax.jdo.option.ConnectionDriverName</name>
+<value>com.mysql.jdbc.Driver</value>
+</property>
+<property>
+<name>javax.jdo.option.ConnectionUserName</name>
+<value>hive</value>
+</property>
+<property>
+<name>javax.jdo.option.ConnectionPassword</name>
+<value>hello01!@</value>
+</property>
+<property>
+  <name>hive.metastore.uris</name>
+  <value>thrift://127.0.0.1:10000</value>
+  <description>JDBC connect string for a JDBC metastore</description>
+</property>
