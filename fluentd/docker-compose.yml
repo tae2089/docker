@@ -1,16 +1,22 @@
 version: "3.7"
 
 services:
-  broker1:
-    image: fluent/fluentd
+  fluent:
+    image: tae2089/fluentd
     container_name: fluentd
     hostname: fluentd
     environment:
       - FLUENTD_CONF=test.conf
     tty: true
     volumes:
-      - /test.conf:/fluentd/etc/test.conf
+      - ./test.conf:/fluentd/test.conf
     ports:
       - "24224:24224"
+  python:
+    image: tae2089/python
+    container_name: python
+    hostname: python
+    tty: true
+
 networks:
   bridge:
