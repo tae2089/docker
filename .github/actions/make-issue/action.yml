@@ -1,0 +1,17 @@
+name: Joke Issue Maker
+description: get kple frp, ramdp,=kple amd create new Issue
+
+inputs:
+  issueTitle:
+    description: Issue Title
+    required: false
+  joke:
+    description: JOke Url
+    required: false
+  repoToken:
+      description: Repo Token
+      required: false
+
+runs:
+  using: "docker"
+  image: "Dockerfile"

@@ -1,11 +1,9 @@
 # This is a basic workflow to help you get started with Actions
 
-name: Hello Team
+name: Random Joke
 
 # Controls when the workflow will run
-on: 
-  push:
-    branches: [ team ]
+on: push
   # Triggers the workflow on push or pull request events but only for the main branch
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
@@ -20,8 +18,13 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
 
-      - name: Hello Team
-        uses: ./.github/actions/hello-team
+      - name: Random Joke Action for team
+        uses: ./.github/actions/random-joke
+        id: random-joke
+
+      - name: Create Issue joke
+        uses: ./.github/actions/make-issue
         with:
-          member: "Youjin kim"
-          leader: "justin"
+          repoToken: $({secrets.GITHUB_TOKEN})
+          joke: $({steps.random-joke.outputs.joke})
+          issueTitle: "Random meme joke for team"
