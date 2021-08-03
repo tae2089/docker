@@ -1,0 +1,6 @@
+name: Hello Team
+description: say hello to team
+
+runs:
+  using: "docker"
+  image: "Dockerfile"
