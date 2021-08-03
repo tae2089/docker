@@ -24,7 +24,7 @@ jobs:
 
       - name: Create Issue joke
         uses: ./.github/actions/make-issue
-        id: make issue
+        id: make-issue
         with:
           repoToken: $({secrets.TOKEN})
           joke: $({steps.random-joke.outputs.joke})
