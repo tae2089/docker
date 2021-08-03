@@ -1,0 +1,8 @@
+sudo docker run --detach \
+  --publish 8080:80 \
+  --name gitlab2 \
+  --restart always \
+  --volume /Users/imtaebin/srv/gitlab/config:/etc/gitlab \
+  --volume /Users/imtaebin/srv/gitlab/logs:/var/log/gitlab \
+  --volume /Users/imtaebin/srv/gitlab/data:/var/opt/gitlab \
+  gitlab/gitlab-ce:latest
