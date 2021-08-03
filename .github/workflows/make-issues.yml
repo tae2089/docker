@@ -24,7 +24,8 @@ jobs:
 
       - name: Create Issue joke
         uses: ./.github/actions/make-issue
+        id: make issue
         with:
-          repoToken: $({secrets.GITHUB_TOKEN})
+          repoToken: $({secrets.TOKEN})
           joke: $({steps.random-joke.outputs.joke})
           issueTitle: "Random meme joke for team"
