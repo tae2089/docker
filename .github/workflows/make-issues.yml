@@ -27,5 +27,5 @@ jobs:
         id: make-issue
         with:
           repoToken: "${{secrets.TOKEN})}"
-          joke: "$({steps.random-joke.outputs.joke})"
+          joke: "${{steps.random-joke.outputs.joke}}"
           issueTitle: "Random meme joke for team"
