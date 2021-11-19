@@ -58,7 +58,7 @@ docker exec -it broker1 sh -c "kafka-server-start.sh kafka/config/kraft/server.p
       - KAFKA_LISTENER=PLAINTEXT://0.0.0.0:9094
       - NODE_ID=3
       - KAFKA_ADVERTISED_LISTENER=PLAINTEXT://main:9094
-      - CONTROLLER_QUORUM_VOTERS=1@main:19092,2@main:19094
+      - CONTROLLER_QUORUM_VOTERS=1@main:19092,2@main:19093,3@main:19094
       - BROKER_PORT=9094
       - UUID_VALUE=2g81oberCDGcDdKAbcldl2
       - CONTOLLER_PORT=19094
