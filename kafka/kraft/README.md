@@ -6,24 +6,22 @@
 파일을 다운받고 위 명령어를 통해 나온 UUID를 복사해서 docker-compose.yml에 있는 UUID_VALUE 모든 곳에 동일하게 입력해준다.
 
 <pre>
-<code> docker-compose up
-</code>
+<code> docker-compose up</code>
 </pre>
 
 그 다음 위 명령어를 통해 도커 컴포즈를 실행해준다.
 
 <pre>
-<code>docker exec -it [컨테이너명] sh -c ". start.sh"
-docker exec -it broker1 sh -c ". start.sh" 
-</code>
+<code>docker exec -it [컨테이너명] sh -c ". ./start.sh"
+docker exec -it broker1 sh -c ". ./start.sh" </code>
 </pre>
 
 위 명령어를 통해 카프카 클러스터를 초기화해준다. 컨테이너 마다 하나씩 명령어를 입력해준다.
 
 다음명령어는 카프카 실행 명령어이다.
 
-<pre><code>docker exec -it [컨테이너명] sh -c "kafka-server-start.sh kafka/config/kraft/server.properties"
-docker exec -it broker1 sh -c "kafka-server-start.sh kafka/config/kraft/server.properties" </code></pre>
+<pre><code>docker exec -it [컨테이너명] sh -c ". ./server_start.sh"
+docker exec -it broker1 sh -c ". ./server_start.sh" </code></pre>
 
 <h2>노드를 늘리고 싶을 경우</h2>
 - 도커 컴포즈 파일에서 해당 변수들을 수정 및 추가를 진행해주면 된다.

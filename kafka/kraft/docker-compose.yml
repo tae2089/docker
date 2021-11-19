@@ -2,7 +2,7 @@ version: "3.7"
 
 services:
   broker1:
-    image: tae2089/kafka:3.0.2
+    image: tae2089/kafka:3.0.6
     container_name: broker1
     hostname: broker1
     environment:
@@ -11,18 +11,18 @@ services:
       - KAFKA_ADVERTISED_LISTENER=PLAINTEXT://main:9092
       - CONTROLLER_QUORUM_VOTERS=1@main:19092,2@main:19093
       - BROKER_PORT=9092
-      - UUID_VALUE=<RANDOM_UUID>
+      - UUID_VALUE=2g81oberCDGcDdKAbcldl2
       - CONTOLLER_PORT=19092
-      - BROKER_IP=<HOST_PRIVATE_IP4>
+      - BROKER_IP=192.168.25.26
     tty: true
     ports:
       - "9092:9092"
       - "19092:19092"
     extra_hosts:
-        - "main:<HOST_PRIVATE_IP4>"
+        - "main:192.168.25.26"
 
   broker2:
-    image: tae2089/kafka:3.0.2
+    image: tae2089/kafka:3.0.6
     container_name: broker2
     hostname: broker2
     environment:
@@ -31,13 +31,13 @@ services:
       - KAFKA_ADVERTISED_LISTENER=PLAINTEXT://main:9093
       - CONTROLLER_QUORUM_VOTERS=1@main:19092,2@main:19093
       - BROKER_PORT=9093
-      - UUID_VALUE=<RANDOM_UUID>
+      - UUID_VALUE=2g81oberCDGcDdKAbcldl2
       - CONTOLLER_PORT=19093
-      - BROKER_IP=<HOST_PRIVATE_IP4>
+      - BROKER_IP=192.168.25.26
     tty: true
     ports:
       - "9093:9093"
       - "19093:19093"
     extra_hosts:
-        - "main:<HOST_PRIVATE_IP4>"
+        - "main:192.168.25.26"
 
