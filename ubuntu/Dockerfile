@@ -6,3 +6,4 @@ RUN adduser --disabled-password --gecos "" ubuntu && echo 'ubuntu:ubuntu' | chpa
 RUN sudo mkdir -p /home/ubuntu
 
 USER ubuntu
+WORKDIR /home/ubuntu
