@@ -13,13 +13,13 @@ services:
       - BROKER_PORT=9092
       - UUID_VALUE=2g81oberCDGcDdKAbcldl2
       - CONTOLLER_PORT=19092
-      - BROKER_IP=192.168.25.26
+      - BROKER_IP=192.168.25.2
     tty: true
     ports:
       - "9092:9092"
       - "19092:19092"
     extra_hosts:
-        - "main:192.168.25.26"
+        - "main:192.168.25.2"
 
   broker2:
     image: tae2089/kafka:3.0.6
@@ -33,11 +33,11 @@ services:
       - BROKER_PORT=9093
       - UUID_VALUE=2g81oberCDGcDdKAbcldl2
       - CONTOLLER_PORT=19093
-      - BROKER_IP=192.168.25.26
+      - BROKER_IP=192.168.25.2
     tty: true
     ports:
       - "9093:9093"
       - "19093:19093"
     extra_hosts:
-        - "main:192.168.25.26"
+        - "main:192.168.25.2"
 

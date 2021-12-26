@@ -9,9 +9,9 @@ services:
       - MYID=1
       - ZOO_SERVERS=server.1=broker1:2888:3888 server.2=broker2:2888:3888
       - KAFKA_LISTENER=PLAINTEXT://0.0.0.0:9092
-      - KAFKA_ADVERTISED_LISTENER=PLAINTEXT://192.168.25.62:9092
+      - KAFKA_ADVERTISED_LISTENER=PLAINTEXT://192.168.25.2:9092
       - PORT=9092
-      - BROKER=192.168.25.62
+      - BROKER=192.168.25.2
       - ZOO_CONNECT=broker1:2181,broker2:2182
     tty: true
     ports:
@@ -28,9 +28,9 @@ services:
       - MYID=2
       - ZOO_SERVERS=server.1=broker1:2888:3888 server.2=broker2:2888:3888
       - KAFKA_LISTENER=PLAINTEXT://0.0.0.0:9093
-      - KAFKA_ADVERTISED_LISTENER=PLAINTEXT://192.168.25.62:9093
+      - KAFKA_ADVERTISED_LISTENER=PLAINTEXT://192.168.25.2:9093
       - PORT=9093
-      - BROKER=192.168.25.62
+      - BROKER=192.168.25.2
       - ZOO_CONNECT=broker1:2181,broker2:2182
     tty: true
     ports:
