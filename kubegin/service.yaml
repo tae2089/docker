@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: gin
+spec:
+  type: LoadBalancer
+  selector:
+    app: test-gin # 라벨이 app=kubia 인 모든 포드는 이 서비스에 속합니다
+  ports:
+      - port: 80 # 서비스가 사용할 포트
+        targetPort: 3000 # 서비스가 포워드 할 포트
